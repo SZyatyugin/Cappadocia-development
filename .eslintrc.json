@@ -1,13 +1,42 @@
 {
+    "plugins": ["prettier","@babel"],
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "airbnb-base",
+        "plugin:prettier/recommended"
+    ],
+    "parser": "@babel/eslint-parser",
     "parserOptions": {
-        "ecmaVersion": 6,
+        "ecmaVersion": 12,
         "sourceType": "module",
+        "allowImportExportEverywhere": false,
         "ecmaFeatures": {
-            "jsx": true
+            "globalReturn": false
+        },
+        "babelOptions":{
+            "configFile":"./.babelrc.json"
         }
     },
     "rules": {
-        "semi": "error"
-    },
-    "extends": "prettier"
+        "indent": ["error", 4],
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["error", "double"],
+        "semi": ["error", "always"],
+
+        // override default options for rules from base configurations
+        "comma-dangle": ["error", "always"],
+        "no-cond-assign": ["error", "always"],
+        "endOfLine":0,
+        // disable rules from base configurations
+        "no-console": "off",
+        "@babel/new-cap": "error",
+        "@babel/no-invalid-this": "error",
+        "@babel/no-unused-expressions": "error",
+        "@babel/object-curly-spacing": "error",
+        "@babel/semi": "error"
+    }
 }

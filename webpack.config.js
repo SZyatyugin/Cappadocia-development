@@ -1,56 +1,68 @@
-const path = require('path');
-const miniCSS = require('mini-css-extract-plugin');
-const htmlWebpackPlugin = require('html-webpack-plugin');
-const ESLintPLugin = require('eslint-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
+const PrettierPlugin = require("prettier-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './build/app.js',
+    entry: "./src/index.js",
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js',
+        filename: "main.js",
+        path: path.resolve(__dirname, "dist"),
+        publicPath: "",
+    },
+    devServer:{
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 9000,
+        overlay:true,
+        open:true,
     },
     module: {
         rules: [
             {
-                test: /\.(sass|scss)$/,
+                test: /\.(scss|sass)$/i,
                 use: [
-                    miniCSS.loader,
-                    'css-loader',
-                    'sass-loader',
-                    'postcss-loader',
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "sass-loader",
+                    "postcss-loader",
+                    "resolve-url-loader",
                 ],
             },
             {
-                test: /\.(js|jsx)$/,
+                test: /\.js$/,
                 exclude: /node_modules/,
-                loader: ['babel-loader', 'prettier-loader'],
+                use: "prettier-loader",
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    {
-                        loader: 'file-loader?name=./assets/images/[name].[ext]',
-                    },
-                ],
+                test: /\.(png|jpe?g|gif|jpg)$/,
+                loader: "file-loader",
+                options: {
+                    name: "./assets/images/[name].[ext]",
+                },
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: [
-                    {
-                        loader: 'file-loader?name=./assets/fonts/[name].[ext]',
-                    },
-                ],
+                test: /\.(svg|eot|woff|woff2|ttf)$/,
+                loader: "file-loader",
+                options: {
+                    name: "./assets/fonts/[name].[ext]",
+                },
             },
         ],
     },
     plugins: [
-        new htmlWebpackPlugin({
-            title: 'My App',
-            template: './build/index.html',
+        new HtmlWebpackPlugin({
+            template: "./src/index.html",
+            filename: "index.html",
+            cache: false,
         }),
-        new miniCSS({
-            filename: 'style.css',
+        new MiniCssExtractPlugin({
+            filename: "style.css",
         }),
-        new ESLintPLugin(),
+        new ESLintPlugin(),
+        new PrettierPlugin(),
+         new CleanWebpackPlugin(),
     ],
 };
