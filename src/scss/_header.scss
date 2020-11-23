@@ -37,4 +37,10 @@ body {
             }
         }
     }
+    .header__title {
+        font-family: "balqis";
+        & > span {
+            font-family: "RobotoCondensed-Regular";
+        }
+    }
 }

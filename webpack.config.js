@@ -33,8 +33,8 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
-                use: "prettier-loader",
+                exclude:[/node_modules/, /dist/,],
+                use:["babel-loader","prettier-loader"],
             },
             {
                 test: /\.(png|jpe?g|gif|jpg)$/,
