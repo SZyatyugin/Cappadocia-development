@@ -1,4 +1,3 @@
-let sum=()=>{
-    return 2+3
-}
-console.log(sum());
+import slider from "./components/slider/slider";
+
+slider();

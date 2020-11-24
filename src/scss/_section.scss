@@ -1,0 +1,50 @@
+.page-section {
+    margin: 200px 0;
+}
+.title {
+    @include fontStyle("balqis", 96px, 400, 128px);
+    color: #e2ab3f;
+    margin-bottom: 100px;
+    & > span {
+        display: block;
+        margin-top: -30px;
+        margin-left: 185px;
+        @include fontStyle("RobotoCondensed-Regular", 24px, 300, 28px);
+        color: black;
+    }
+}
+.fairy-tail {
+    &__inner {
+        .fairy-tail__slider {
+            position: relative;
+            width: 960px;
+            height: 780px;
+            overflow-x: hidden;
+            display: flex;
+            flex-flow: row nowrap;
+            .arrow-back,
+            .arrow-forward {
+                z-index: 1;
+                width: 70px;
+                height: 70px;
+                top: 50%;
+                display: block;
+                position: absolute;
+                cursor: pointer;
+            }
+            .arrow-back {
+                left: 0;
+                background-image: url("../assets/images/arrow-back.svg");
+            }
+            .arrow-forward {
+                right: 0;
+                background-image: url("../assets/images/arrow-forward.svg");
+            }
+            .fairy-tail__item {
+                width: 960px;
+                height: 780px;
+                transition: 1s transform ease;
+            }
+        }
+    }
+}

@@ -3,5 +3,19 @@
     "tabWidth": 4,
     "semi": true,
     "singleQuote": false,
-    "printWidth": 80
+    "printWidth": 80,
+    "overrides":[
+      {
+        "files":"*.js",
+        "options":{
+          "parser":"babel"
+        }
+      },
+      {
+        "files":"*.html",
+        "options":{
+          "parser":"html"
+        }
+      }
+    ]
   }

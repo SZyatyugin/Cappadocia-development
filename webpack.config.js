@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const PrettierPlugin = require("prettier-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     entry: "./src/index.js",
@@ -31,6 +32,10 @@ module.exports = {
                     "resolve-url-loader",
                 ],
             },
+            {
+                test: /\.html$/i,
+                loader: 'html-loader',
+              },
             {
                 test: /\.js$/,
                 exclude:[/node_modules/, /dist/,],

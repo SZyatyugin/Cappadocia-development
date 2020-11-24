@@ -18,7 +18,7 @@
             "globalReturn": false
         },
         "babelOptions":{
-            "configFile":"./babel.config.json"
+            "configFile":"./babel.config.js"
         }
     },
     "rules": {
@@ -28,10 +28,12 @@
         "semi": ["error", "always"],
 
         // override default options for rules from base configurations
-        "comma-dangle": ["error", "always"],
+        "comma-dangle": ["error", "only-multiline"],
         "no-cond-assign": ["error", "always"],
+        "no-return-assign":"off",
+        "array-callback-return":"off",
         "endOfLine":0,
-        // disable rules from base configurations
+        "no-plusplus":"off",
         "no-console": "off",
         "@babel/new-cap": "error",
         "@babel/no-invalid-this": "error",
