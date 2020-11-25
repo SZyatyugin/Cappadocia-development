@@ -14,6 +14,7 @@ a {
     text-decoration: none;
 }
 body {
+    @include fontStyle("RobotoCondensed-Light", 18px, 300, 21px);
     color: black;
 }
 .header {

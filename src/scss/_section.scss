@@ -1,5 +1,6 @@
 .page-section {
-    margin: 200px 0;
+    margin: 200px auto;
+    max-width: 1920px;
 }
 .title {
     @include fontStyle("balqis", 96px, 400, 128px);
@@ -14,11 +15,17 @@
     }
 }
 .fairy-tail {
+    position: relative;
+    .fairy-tail__title {
+        max-width: 1230px;
+        margin: 0 auto 100px auto;
+    }
     &__inner {
+        position: relative;
         .fairy-tail__slider {
             position: relative;
-            width: 960px;
-            height: 780px;
+            width: 50%;
+            height: auto;
             overflow-x: hidden;
             display: flex;
             flex-flow: row nowrap;
@@ -30,6 +37,7 @@
                 top: 50%;
                 display: block;
                 position: absolute;
+                transform: translateY(-50%);
                 cursor: pointer;
             }
             .arrow-back {
@@ -41,9 +49,147 @@
                 background-image: url("../assets/images/arrow-forward.svg");
             }
             .fairy-tail__item {
-                width: 960px;
-                height: 780px;
                 transition: 1s transform ease;
+            }
+        }
+        .fairy-tail__container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            max-width: 1230px;
+            padding: 0 15px;
+            margin: 0 auto;
+            .fairy-tail__body {
+                display: flex;
+                flex-flow: column;
+                justify-content: space-around;
+                width: 50%;
+                height: 100%;
+                margin-left: auto;
+                padding-left: 55px;
+
+                .fairy-tail__text {
+                    padding: 10px 0;
+                }
+                .fairy-tail__body-title {
+                    font-family: "RobotoCondensed-Regular";
+                }
+            }
+        }
+    }
+}
+.our-trip {
+    .our-trip__title {
+        span {
+            margin-left: 242px;
+        }
+    }
+    .our-trip__inner {
+        position: relative;
+    }
+    .our-trip__container {
+        max-width: 1230px;
+        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0 15px;
+    }
+    .our-trip__body {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        height: 100%;
+        .our-trip__btn {
+            @include fontStyle("RobotoCondensed-Regular", 24px, 300, 28px);
+            border: 1px #e2ab3f solid;
+            padding: 11px 54px;
+            width: fit-content;
+        }
+    }
+    .our-trip__list {
+        padding: 20px 0;
+        li:first-child {
+            font-family: "RobotoCondensed-Regular";
+        }
+    }
+    .our-trip__slider-container {
+        margin-left: auto;
+        .our-trip__slider {
+            position: relative;
+            width: 50%;
+            margin-left: auto;
+            display: flex;
+            flex-flow: row nowrap;
+            overflow-x: hidden;
+            .arrow-back,
+            .arrow-forward {
+                z-index: 1;
+                width: 70px;
+                height: 70px;
+                top: 50%;
+                display: block;
+                position: absolute;
+                transform: translateY(-50%);
+                cursor: pointer;
+            }
+            .arrow-back {
+                left: 0;
+                background-image: url("../assets/images/arrow-back.svg");
+            }
+            .arrow-forward {
+                right: 0;
+                background-image: url("../assets/images/arrow-forward.svg");
+            }
+            .our-trip__slider-item {
+                transition: 1s transform ease-in;
+            }
+        }
+    }
+}
+.hotel {
+    .hotel__title {
+        span {
+            margin-left: 110px;
+        }
+    }
+    .hotel__gallery {
+        margin-top: 30px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        a {
+            margin-top: 50px;
+        }
+    }
+    .hotel__inner {
+        position: relative;
+        max-width: 1230px;
+        margin: 0 auto;
+        .hotel__inner-top-img {
+            width: 50%;
+        }
+        .hotel__content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin-left: auto;
+            width: 40%;
+            height: 100%;
+            .hotel__text + .hotel__text {
+                margin-bottom: 20px;
+            }
+            .hotel__gallery {
+                margin-top: 80px;
+                a {
+                    width: 50%;
+                }
             }
         }
     }
