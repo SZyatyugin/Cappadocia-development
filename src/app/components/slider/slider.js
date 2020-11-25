@@ -1,8 +1,10 @@
 function slider() {
     let counter = 0;
+    let timer;
     const getAll = (id) => {
         return document.querySelectorAll(id);
     };
+    //* auto rotate image every 4s //
     function sliderAutoRotate() {
         counter += 1;
         if (counter > 2) {
@@ -13,8 +15,9 @@ function slider() {
             const el = element;
             el.style.transform = `translateX(-${counter * 100}%)`;
         });
+        timer = setTimeout(sliderAutoRotate, 4000);
     }
-    const timer = setTimeout(sliderAutoRotate, 4000);
+    //* clear timeout and change img on arrow click //
     function sliderRotate(e) {
         clearTimeout(timer);
         if (e.target.classList.contains("arrow-forward")) {
@@ -42,6 +45,7 @@ function slider() {
     Object.values(getAll(".fairy-tail__slider-arrow")).forEach((elem) => {
         elem.addEventListener("click", sliderRotate);
     });
+    sliderAutoRotate();
 }
 
 export default slider;

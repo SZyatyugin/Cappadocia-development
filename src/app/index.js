@@ -1,3 +1,6 @@
 import slider from "./components/slider/slider";
 
-slider();
+const render = () => {
+    slider();
+};
+render();

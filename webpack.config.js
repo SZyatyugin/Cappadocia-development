@@ -4,12 +4,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const PrettierPlugin = require("prettier-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     entry: "./src/index.js",
     output: {
-        filename: "main.js",
+        chunkFilename: "main.[chunkhash].js",
         path: path.resolve(__dirname, "dist"),
         publicPath: "",
     },
@@ -58,16 +57,17 @@ module.exports = {
         ],
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: "./src/index.html",
             filename: "index.html",
             cache: false,
+            hash:true,
         }),
         new MiniCssExtractPlugin({
-            filename: "style.css",
+            filename: "style.[contenthash].css",
         }),
         new ESLintPlugin(),
         new PrettierPlugin(),
-         new CleanWebpackPlugin(),
     ],
 };
