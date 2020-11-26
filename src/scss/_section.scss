@@ -118,7 +118,6 @@
         }
     }
     .our-trip__slider-container {
-        margin-left: auto;
         .our-trip__slider {
             position: relative;
             width: 50%;
@@ -163,7 +162,11 @@
         flex-flow: row wrap;
         justify-content: space-between;
         a {
+            width: 40%;
             margin-top: 50px;
+            img {
+                width: 100%;
+            }
         }
     }
     .hotel__inner {
@@ -182,15 +185,326 @@
             margin-left: auto;
             width: 40%;
             height: 100%;
-            .hotel__text + .hotel__text {
+            .hotel__text {
                 margin-bottom: 20px;
             }
-            .hotel__gallery {
-                margin-top: 80px;
-                a {
-                    width: 50%;
-                }
+        }
+    }
+}
+.price {
+    background-image: url("../assets/images/price-section-balloon.png");
+    background-repeat: no-repeat;
+    background-position: center right 20%;
+    .price__title {
+        span {
+            margin-left: 120px;
+        }
+    }
+    .price__inner {
+        display: flex;
+    }
+    .price__on {
+        margin-right: 70px;
+        width: 530px;
+    }
+    .price__on-title,
+    .price__off-title {
+        @include fontStyle("RobotoCondensed-Regular", 24px, 400, 28px);
+    }
+    .price__list-item {
+        margin-bottom: 20px;
+    }
+}
+.contacts {
+    .contacts__inner {
+        display: flex;
+        justify-content: space-between;
+    }
+    .contacts__content {
+        text-align: center;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-around;
+    }
+    .contacts__date {
+        span {
+            margin-left: 205px;
+        }
+    }
+    .contacts__price {
+        margin-left: 120px;
+        span {
+            margin-left: 146px;
+        }
+    }
+    .contacts__date,
+    .contacts__price {
+        @include fontStyle("balqis", 96px, 400, 128px);
+        color: #e2ab3f;
+        span {
+            display: block;
+            @include fontStyle("RobotoCondensed-Light", 24px, 400, 28px);
+            color: black;
+            margin-top: -25px;
+        }
+    }
+    .contacts__form {
+        max-width: 383px;
+        margin: 100px auto 0 auto;
+        .contacts__form-title {
+            @include fontStyle("RobotoCondensed-Regular", 24px, 400, 28px);
+            margin-bottom: 50px;
+        }
+        .contacts__form-input {
+            @include fontStyle("RobotoCondensed-Regular", 18px, 300, 21px);
+            border: #e2ab3f 1px solid;
+            height: 50px;
+            padding: 0 31px;
+            width: 100%;
+        }
+        .contacts__form-input ::placeholder {
+            color: black;
+        }
+        .contacts__form-name {
+            margin-bottom: 20px;
+        }
+        .contacts__form-phone {
+            margin-bottom: 32px;
+        }
+        .contacts__form-btn {
+            padding: 12px 45px 10px 46px;
+            background-color: transparent;
+            border: 1px solid #e2ab3f;
+        }
+    }
+}
+.footer {
+    background-image: url("../assets/images/footer-img.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    padding-top: 96px;
+
+    .footer__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .footer__text {
+        @include fontStyle("balqis", 86px, 400, 115px);
+    }
+    .footer__contacts {
+        width: 356px;
+        height: 527px;
+        background-image: url("../assets/images/kisspng-flight-hot-air-balloon-computer-icons-aerostat-5afe08ad4b2f92\ 2.png");
+        background-repeat: no-repeat;
+        text-align: center;
+        .footer__contacts-title {
+            margin-top: 70px;
+            @include fontStyle("balqis", 86px, 400, 115px);
+            color: #e2ab3f;
+            margin-bottom: 30px;
+        }
+        .footer__phone,
+        .footer__email {
+            @include fontStyle("RobotoCondensed-Regular", 18px, 300, 21px);
+            display: inline-block;
+            padding-left: 40px;
+            position: relative;
+        }
+        .footer__phone::before,
+        .footer__email::before {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 0;
+        }
+        .footer__phone::before {
+            background-image: url("../assets/images/phone\ 2.svg");
+        }
+        .footer__email::before {
+            background-image: url("../assets/images/mail\ 1.svg");
+        }
+
+        .footer__phone {
+            margin-bottom: 20px;
+        }
+        .footer__social {
+            margin-top: 38px;
+            a {
+                margin: 0 7px;
             }
         }
+    }
+}
+@media (max-width: 991px) {
+    .page-section {
+        margin: 100px auto;
+    }
+    .fairy-tail {
+        .fairy-tail__title {
+            text-align: center;
+            span {
+                margin-left: 350px;
+            }
+        }
+    }
+    .fairy-tail__inner {
+        .fairy-tail__slider {
+            width: 97%;
+            margin: 0 auto;
+        }
+        .fairy-tail__container {
+            .fairy-tail__body {
+                margin: 0 auto;
+                padding-left: 0;
+            }
+        }
+    }
+    .fairy-tail__inner .fairy-tail__container,
+    .our-trip .our-trip__container {
+        position: static;
+    }
+    .our-trip {
+        .our-trip__body {
+            margin-bottom: 20px;
+            text-align: center;
+            .our-trip__btn {
+                margin: 0 auto;
+            }
+        }
+        .title {
+            margin-bottom: 50px;
+        }
+        .our-trip__slider-container {
+            .our-trip__slider {
+                width: 97%;
+                margin: 0 auto;
+            }
+        }
+    }
+    .hotel__title {
+        text-align: center;
+    }
+    .hotel {
+        .hotel__inner {
+            .hotel__inner-top-img {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .hotel__content {
+                position: static;
+                width: 90%;
+                margin: 0 auto;
+            }
+        }
+    }
+    .price {
+        background-position: bottom right 20%;
+        .price__title {
+            text-align: center;
+        }
+    }
+    .contacts__content {
+        padding-right: 5px;
+    }
+    .contacts__images {
+        width: 50%;
+        height: auto;
+        object-fit: cover;
+    }
+    .footer {
+        .footer__inner {
+            flex-flow: wrap;
+            justify-content: center;
+        }
+        .footer__contacts {
+            width: 567px;
+            background-position: center;
+        }
+    }
+}
+@media (max-width: 650px) {
+    .page-section {
+        margin: 50px auto;
+    }
+    .fairy-tail .fairy-tail__title {
+        font-size: 70px;
+        margin-bottom: 50px;
+        span {
+            font-size: 16px;
+            margin-left: 270px;
+            margin-top: -40px;
+        }
+    }
+    .our-trip .our-trip__title {
+        font-size: 70px;
+        margin-bottom: 50px;
+        span {
+            font-size: 16px;
+            margin-left: 180px;
+            margin-top: -40px;
+        }
+    }
+    .hotel .hotel__title {
+        font-size: 70px;
+        margin-bottom: 50px;
+        span {
+            font-size: 16px;
+            margin-left: 180px;
+            margin-top: -40px;
+        }
+    }
+    .price .price__title {
+        font-size: 70px;
+        margin-bottom: 50px;
+        span {
+            font-size: 16px;
+            margin-left: 180px;
+            margin-top: -40px;
+        }
+    }
+    .contacts {
+        .contacts__inner {
+            flex-flow: wrap;
+            justify-content: center;
+        }
+    }
+    .contacts__images {
+        width: 100%;
+    }
+    .footer {
+        .footer__contacts {
+            background-position: center;
+            background-size: contain;
+        }
+        .footer__text {
+            text-align: center;
+        }
+    }
+}
+@media (max-width: 425px) {
+    .fairy-tail__inner .fairy-tail__container .fairy-tail__body {
+        width: 90%;
+    }
+    .fairy-tail .fairy-tail__title {
+        font-size: 50px;
+        margin-bottom: 50px;
+        span {
+            font-size: 16px;
+            margin-left: 200px;
+            margin-top: -50px;
+        }
+    }
+    .our-trip .our-trip__title {
+        font-size: 50px;
+    }
+    .hotel .hotel__title {
+        font-size: 50px;
+    }
+    .price .price__title {
+        font-size: 50px;
     }
 }
